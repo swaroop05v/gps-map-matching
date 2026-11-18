@@ -1,0 +1,12 @@
+# raw dataset and derived tables (regenerate with scripts/02_build_dataset.py)
+data/raw/
+data/processed/
+# Random Forest experiment model is 87 MB (regenerate with scripts/03_train_compare.py rf)
+models/experiments/rf.joblib
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.streamlit/secrets.toml
+# personal study notes (one per team member, not part of the project)
+STUDY_NOTES.md
