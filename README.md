@@ -78,7 +78,7 @@ python scripts/02_build_dataset.py    # ~1 min
 python scripts/03_train_compare.py logreg gnb lgbm hgb rf knn
 python scripts/03_train_compare.py mlp     # separate process (see note below)
 python scripts/03b_plot_models.py
-python scripts/04_bayes_opt.py        # Optuna, 30 trials (N_TRIALS env var)
+N_TRIALS=25 python scripts/04_bayes_opt.py   # Optuna; the reported run used 25 trials (default 30)
 python scripts/05_hmm_eval.py         # decoder tuning + final model export + result maps
 python scripts/06_result_maps.py      # zoomed maps + screenshots (needs Edge/Chrome)
 python scripts/07_make_report.py      # report HTML + PDF

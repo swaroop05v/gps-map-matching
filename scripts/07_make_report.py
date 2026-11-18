@@ -201,7 +201,7 @@ but the largest strongly connected component holds {100*inv.largest_scc_frac.mea
     a(img("eda_trip_centroids.png", "Figure 4. Trip centroids (train and student_test).", 55))
     a(img("eda_trajectories_network.png", "Figure 5. GPS fixes (blue), reference route (green) and road network (grey) for four train trips."))
     a(img("eda_network.png", "Figure 6. Road-network size, route length vs trajectory length, and connectivity (train and student_test)."))
-    a(img("map_eda_train_00000004.png", "Figure 7. Folium map of train trip 00000004: raw GPS fixes, reference route, road network, start/end markers, layer control and legend (results/maps/eda_train_00000004.html)."))
+    a(img("gta/map_eda_train_00000004.png", "Figure 7. Folium map of train trip 00000004: raw GPS fixes, reference route, road network, start/end markers, layer control and legend (results/maps/eda_train_00000004.html)."))
 
     a("<h3>Q1. How did we preprocess the data?</h3>")
     a(f"""<ol>
@@ -370,9 +370,10 @@ probabilities on all 80 train trips: each trip is scored by the fold model that 
 
     # ------------------------------------------------------------------ 6
     a("<h2>6. Geographical Visualisation Using Folium</h2>")
-    a("""<p>All maps come from <code>src/pathsnap/viz.py</code> (scripts 01, 05 and 06) and are committed as interactive HTML in
-<code>results/maps/</code>. Layers: road network (grey), reference route (green, offline maps only), classifier-only route (orange),
-HMM/Viterbi route (red), raw GPS fixes (blue circle markers), start/end markers, a legend and a layer control. The maps are fitted to the trip
+    a("""<p>All maps come from <code>src/pathsnap/viz.py</code> with the shared styling in <code>src/pathsnap/map_style.py</code>
+(scripts 01, 05 and 06). The interactive HTML versions are committed in <code>report/screenshots/gta/maps/</code> (regenerate with
+<code>python scripts/06_result_maps.py --gta</code>). Layers: road network (grey), raw GPS fixes (light-blue circle markers), reference route
+(green, offline maps only), classifier-only route (orange), HMM/Viterbi route (pink), start/finish markers, a legend and a layer control. The maps are fitted to the trip
 extent, or zoomed to an area where the methods disagree.</p>""")
     for f, cap in OBS.get("_maps", []):
         a(img(f, cap))
@@ -387,12 +388,19 @@ For each request the API loads the trip, <b>removes its route before prediction<
 features → LightGBM → Viterbi → route bridging, and only then scores against its own reference. The response holds the GPS fixes, the predicted
 route geometry and the metrics. The reference route never leaves the server. Every request is logged to the console and to
 <code>results/logs/api_requests.log</code> (client IP, trip, number of fixes, accuracy, latency).</p>""")
+    a("""<p><b>Two-laptop deployment, as demonstrated.</b> The backend laptop ran the API with <code>--host 0.0.0.0</code> on a shared
+Wi-Fi hotspot, with an inbound Windows Firewall rule for TCP port 8000. The frontend laptop ran <code>streamlit run ui/app.py</code> with the API URL
+set to the backend's address. Each request appears in the backend terminal, including the <code>PREDICT</code> line with the trip, the number of fixes,
+the server-side scores and the processing time, followed by <code>POST /predict ... 200</code>. The screenshots below were taken on the two
+laptops during that run.</p>""")
     for f, cap in OBS.get("_shots", []):
         a(img(f, cap))
     logp = os.path.join(RES, "logs", "api_requests.log")
     if os.path.exists(logp):
-        lines = [l for l in open(logp, encoding="utf-8", errors="ignore").read().splitlines() if "PREDICT" in l][-10:]
-        a("<p><b>API log excerpt</b> (results/logs/api_requests.log, written by the API process on the receiving machine):</p>"
+        lines = [l for l in open(logp, encoding="utf-8", errors="ignore").read().splitlines()
+                 if "PREDICT" in l or "POST /predict from" in l][-8:]
+        a("<p><b>API log excerpt</b> (last prediction entries in results/logs/api_requests.log, written by the API process on the backend laptop; "
+          "requests from 10.213.115.230 came from the frontend laptop during the two-laptop run):</p>"
           "<pre style='font-size:9.5px;white-space:pre-wrap'>" + "\n".join(lines) + "</pre>")
 
     a("<h2>8. Reproducibility, Integrity and AI-use Disclosure</h2>")
