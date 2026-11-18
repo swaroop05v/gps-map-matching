@@ -1,0 +1,36 @@
+# PathSnap configuration. All thresholds were chosen on train / student_test only.
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  train: data/raw/train
+  student_test: data/raw/student_test
+  eval_test: data/raw/eval_test        # the 10 evaluator trips go here (never used for training)
+  processed: data/processed
+  models: models
+  results: results
+
+candidates:
+  radius_m: 50.0          # search radius around each GPS fix
+  max_k: 10               # keep at most K nearest arcs
+  fallback_radius_m: 150.0  # if nothing within radius, widen once
+  fallback_k: 3
+  densify_step_m: 10.0    # spacing of sample points on arcs for the KD-tree
+
+features:
+  heading_half_window: 2    # heading from point i-2 -> i+2
+  heading_long_half_window: 5
+  min_heading_disp_m: 3.0   # below this displacement the heading is considered unknown
+  context_half_window: 3    # +-3 points used for context distance features
+
+preprocess:
+  gap_seconds: 60.0         # a gap larger than this starts a new HMM segment
+  gap_jump_m: 800.0         # a jump larger than this starts a new HMM segment
+
+hmm:                        # overwritten by results of scripts/05_hmm_eval.py (models/hmm_config.json)
+  alpha: 1.0                # emission weight on log P(classifier)
+  beta: 10.0                # transition scale (metres)
+  same_arc_backtrack_tol_m: 15.0
+  sp_limit_m: 2000.0        # bounded Dijkstra cut-off
+  unreachable_logp: -30.0   # log-probability floor for disconnected arcs
+  beam: 8                   # keep top-B candidates per point by classifier score

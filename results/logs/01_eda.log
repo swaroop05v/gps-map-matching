@@ -1,0 +1,18 @@
+partition               student_test          train
+trips                      10.000000      80.000000
+gps_points              19160.000000  208417.000000
+mean_gps                 1916.000000    2605.212500
+min_gps                   262.000000     361.000000
+max_gps                  3958.000000   19313.000000
+mean_nodes               9068.900000   24168.562500
+mean_arcs               18504.100000   48461.300000
+mean_route_arcs           347.700000     391.700000
+trips_with_gaps_gt_60s      1.000000      22.000000
+total_nan                   0.000000       0.000000
+total_invalid               0.000000       0.000000
+total_non_increasing_t      0.000000       0.000000
+total_dup_positions         0.000000       6.000000
+mean_pct_bidirectional     92.694029      92.167335
+route_breaks                1.000000      13.000000
+max_proj_err_m              0.109933       0.719241
+EDA done

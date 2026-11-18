@@ -1,0 +1,10 @@
+[Parallel(n_jobs=8)]: Using backend LokyBackend with 8 concurrent workers.
+[Parallel(n_jobs=8)]: Done   2 tasks      | elapsed:    3.6s
+[Parallel(n_jobs=8)]: Done  56 tasks      | elapsed:    7.7s
+[Parallel(n_jobs=8)]: Done  80 out of  80 | elapsed:   11.1s finished
+[Parallel(n_jobs=8)]: Using backend LokyBackend with 8 concurrent workers.
+[Parallel(n_jobs=8)]: Done   4 out of  10 | elapsed:    0.1s remaining:    0.2s
+[Parallel(n_jobs=8)]: Done   7 out of  10 | elapsed:    0.3s remaining:    0.1s
+[Parallel(n_jobs=8)]: Done  10 out of  10 | elapsed:    0.9s finished
+{'partition': 'train', 'trips': 80, 'gps_points': 208417, 'candidate_rows': 1282573, 'mean_candidates_per_point': np.float64(6.159730860296131), 'points_without_candidates_pct': np.float64(0.09500184725814113), 'reliable_label_points_pct': np.float64(88.84208102026227), 'candidate_miss_rate_all_pct': np.float64(11.212137205698191), 'candidate_miss_rate_reliable_pct': np.float64(0.6599626273209425), 'nearest_arc_top1_reliable_pct': np.float64(55.56917726099307), 'build_seconds_total': 51.92420244216919}
+{'partition': 'student_test', 'trips': 10, 'gps_points': 19160, 'candidate_rows': 131630, 'mean_candidates_per_point': np.float64(6.870041753653445), 'points_without_candidates_pct': np.float64(0.0), 'reliable_label_points_pct': np.float64(99.85908141962422), 'candidate_miss_rate_all_pct': np.float64(0.26096033402922547), 'candidate_miss_rate_reliable_pct': np.float64(0.12021115350441258), 'nearest_arc_top1_reliable_pct': np.float64(53.62985417864423), 'build_seconds_total': 3.4344875812530518}

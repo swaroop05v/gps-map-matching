@@ -1,0 +1,20 @@
+{
+  "alpha": 0.5,
+  "beta": 5.0,
+  "same_arc_backtrack_tol_m": 15.0,
+  "sp_limit_m": 2000.0,
+  "unreachable_logp": -30.0,
+  "beam": 8,
+  "selected_from": "hmm_a0.5_b5.0",
+  "selection": "max pooled OOF Top-1 on 80 train trips",
+  "classifier_params": {
+    "learning_rate": 0.028145092716060652,
+    "n_estimators": 467,
+    "num_leaves": 119,
+    "max_depth": 6,
+    "min_child_samples": 188,
+    "subsample": 0.569746930326021,
+    "colsample_bytree": 0.5752867891211308,
+    "reg_lambda": 0.006789053271698486
+  }
+}
