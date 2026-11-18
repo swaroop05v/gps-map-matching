@@ -2,6 +2,8 @@
 import folium
 import numpy as np
 
+from .map_style import CLASSIFIER, GPS, NETWORK, PREDICTED, REFERENCE, map_key, route_endpoints, street_map
+
 
 def _arc_lines(nodes_lonlat, arcs, arc_ids):
     arc_ids = np.asarray(arc_ids, dtype=np.int64)
@@ -43,7 +45,7 @@ def add_legend(m, items, title="Legend"):
 
 
 def trip_map(nodes_lonlat, arcs, track, ref_route=None, layers=None, network_margin_deg=0.003,
-             max_network_arcs=15000, point_step=1, title=None, bounds=None):
+             max_network_arcs=15000, point_step=1, title=None, bounds=None, themed=False):
     """Build an interactive map.
 
     track: (N, >=2) lon, lat
@@ -51,7 +53,11 @@ def trip_map(nodes_lonlat, arcs, track, ref_route=None, layers=None, network_mar
     layers: list of (name, arc_ids, colour) for predicted routes
     """
     lat_c, lon_c = float(np.mean(track[:, 1])), float(np.mean(track[:, 0]))
-    m = folium.Map(location=[lat_c, lon_c], zoom_start=15, tiles="OpenStreetMap", control_scale=True)
+    m = (street_map([lat_c, lon_c], 15) if themed else
+         folium.Map(location=[lat_c, lon_c], zoom_start=15, tiles="OpenStreetMap", control_scale=True))
+    network_color = NETWORK if themed else "#888888"
+    gps_color = GPS if themed else "#1f4fd8"
+    reference_color = REFERENCE if themed else "#1a9e3a"
     legend = []
 
     # road network near the trajectory
@@ -63,38 +69,46 @@ def trip_map(nodes_lonlat, arcs, track, ref_route=None, layers=None, network_mar
         inside = inside[:: int(np.ceil(len(inside) / max_network_arcs))]
     if len(inside):
         fg = folium.FeatureGroup(name="Road network (arcs)", show=True)
-        folium.PolyLine(_arc_lines(nodes_lonlat, arcs, inside), color="#888888", weight=1.5, opacity=0.6).add_to(fg)
+        folium.PolyLine(_arc_lines(nodes_lonlat, arcs, inside), color=network_color, weight=1.5, opacity=0.6).add_to(fg)
         fg.add_to(m)
-        legend.append(("Road network", "#888888"))
+        legend.append(("Road network", network_color))
 
     # raw GPS drawn below the route layers so the routes stay visible
     fg = folium.FeatureGroup(name="Raw GPS observations", show=True)
     for lon, lat in track[::point_step, :2]:
-        folium.CircleMarker((float(lat), float(lon)), radius=2.5, color="#1f4fd8", fill=True, fill_opacity=0.7, weight=1).add_to(fg)
+        folium.CircleMarker((float(lat), float(lon)), radius=2.5, color=gps_color, fill=True, fill_opacity=0.7, weight=1).add_to(fg)
     fg.add_to(m)
-    legend.append(("Raw GPS", "#1f4fd8"))
+    legend.append(("Raw GPS", gps_color))
 
     if ref_route is not None and len(ref_route):
         fg = folium.FeatureGroup(name="Reference route (ground truth)", show=True)
         for line in _merge_route(nodes_lonlat, arcs, ref_route):
-            folium.PolyLine(line, color="#1a9e3a", weight=7, opacity=0.6).add_to(fg)
+            folium.PolyLine(line, color=reference_color, weight=7, opacity=0.6).add_to(fg)
         fg.add_to(m)
-        legend.append(("Reference route", "#1a9e3a"))
+        legend.append(("Reference route", reference_color))
 
     for name, arc_ids, colour in layers or []:
         if arc_ids is None or len(arc_ids) == 0:
             continue
+        if themed:
+            colour = {"#f4a261": CLASSIFIER, "#d62728": PREDICTED}.get(colour, colour)
         fg = folium.FeatureGroup(name=name, show=True)
         for line in _merge_route(nodes_lonlat, arcs, arc_ids):
-            folium.PolyLine(line, color=colour, weight=4, opacity=0.9).add_to(fg)
+            folium.PolyLine(line, color=colour, weight=4, opacity=0.9,
+                            dash_array="7 6" if themed and colour == CLASSIFIER else None).add_to(fg)
         fg.add_to(m)
         legend.append((name, colour))
 
-    folium.Marker((float(track[0, 1]), float(track[0, 0])), tooltip="Start", icon=folium.Icon(color="green", icon="play")).add_to(m)
-    folium.Marker((float(track[-1, 1]), float(track[-1, 0])), tooltip="End", icon=folium.Icon(color="red", icon="stop")).add_to(m)
+    first = (float(track[0, 1]), float(track[0, 0]))
+    last = (float(track[-1, 1]), float(track[-1, 0]))
+    if themed:
+        route_endpoints(m, first, last)
+    else:
+        folium.Marker(first, tooltip="Start", icon=folium.Icon(color="green", icon="play")).add_to(m)
+        folium.Marker(last, tooltip="End", icon=folium.Icon(color="red", icon="stop")).add_to(m)
     if bounds is None:
         bounds = [[float(track[:, 1].min()), float(track[:, 0].min())], [float(track[:, 1].max()), float(track[:, 0].max())]]
     m.fit_bounds(bounds)
     folium.LayerControl(collapsed=False).add_to(m)
-    add_legend(m, legend, title or "PathSnap")
+    (map_key if themed else add_legend)(m, legend, title or "PathSnap")
     return m

@@ -1,0 +1,26 @@
+<style>
+:root {color-scheme:dark}
+.stApp,[data-testid="stHeader"] {background:#10191f;color:#eef5f1}
+.stApp [data-testid="stMainBlockContainer"] {max-width:1580px;padding:2.5rem 2.2rem}
+.dispatch-header {padding:12px 0 18px;margin-bottom:16px;border-bottom:1px solid #445961}
+.dispatch-header h1 {font:900 clamp(2.6rem,5vw,4.8rem)/.93 "Arial Black",Arial,sans-serif;
+  text-transform:uppercase;letter-spacing:-.075em;color:#eef5f1;margin:0;padding:0}
+.dispatch-header h1 span {color:#a6f780}
+.dispatch-header p {margin:12px 0 0;color:#b5c5c4;letter-spacing:.16em;text-transform:uppercase;font-size:.72rem}
+.stApp h2,.stApp h3,.stApp label,.stApp summary {color:#eef5f1}
+.stApp [data-testid="stCaptionContainer"] {color:#b5c5c4}
+.stApp [data-testid="stVerticalBlockBorderWrapper"] {background:#17252c;border-color:#3c535a;border-radius:4px}
+.stApp [data-testid="stMetric"] {background:#17252c;border:1px solid #3c535a;border-top:2px solid #a6f780;
+  border-radius:3px;padding:10px 12px;min-width:0}
+.stApp [data-testid="stMetricValue"] {font-family:ui-monospace,monospace;font-weight:800;color:#eef5f1;font-size:clamp(1.38rem,3vw,2.3rem)}
+.stApp [data-testid="stMetricLabel"] {color:#c8d5d1}
+.stApp button[kind="primary"],.stApp button[data-testid="stBaseButton-primary"] {
+  background:#a6f780;color:#122015;border-color:#a6f780;border-radius:3px;font-weight:800}
+.stApp button[kind="primary"]:hover,.stApp button[data-testid="stBaseButton-primary"]:hover {background:#c4ffa9;color:#122015}
+.stApp iframe[title*="st_folium"] {border:1px solid #445961;border-radius:3px}
+.stApp [data-baseweb="select"] > div,.stApp [data-baseweb="input"] {background:#182830;color:#eef5f1;border-color:#52666e}
+.stApp [data-baseweb="input"] input {color:#eef5f1}
+.stApp details {border-color:#445961}
+.stApp th,.stApp td {color:#e0eeeb}
+@media (max-width:680px) {.stApp [data-testid="stMainBlockContainer"] {padding:2rem 1rem}}
+</style>

@@ -104,7 +104,11 @@ uvicorn api.main:app --host 0.0.0.0 --port 8000
 pip install streamlit streamlit-folium folium requests
 streamlit run ui/app.py
 ```
-Set the API URL in the sidebar to `http://<laptop1-ip>:8000`. The UI only needs `ui/app.py`, since all data and models stay on Laptop 1.
+Set the API URL under **API connection** to `http://<laptop1-ip>:8000`. Use the repository on Laptop 2 for the UI and shared map styling. Data and models are needed on Laptop 1.
+
+Select **Evaluator trips** for the final demonstration or **Student test** for a practice run. Select a trip and run map matching. The map's layer control switches between raw GPS, HMM predictions and classifier-only predictions.
+
+The [redesigned screenshots and evidence index](report/screenshots/gta/README.md) are alongside the original captures. Regenerate the themed offline maps and their screenshots with `python scripts/06_result_maps.py --gta`.
 
 ### API endpoints
 | Method | Path | Description |
