@@ -1,0 +1,15 @@
+train rows 1200124, positives 0.153, test rows 131630
+===== logreg
+  fold 0: macroF1 0.9342 top1 0.8903 logloss 0.1184 (9.5s)
+  fold 1: macroF1 0.9500 top1 0.9132 logloss 0.0892 (3.3s)
+  fold 2: macroF1 0.9436 top1 0.8963 logloss 0.0975 (8.2s)
+  fold 3: macroF1 0.9215 top1 0.8594 logloss 0.1190 (9.8s)
+  fold 4: macroF1 0.9398 top1 0.8995 logloss 0.1158 (9.6s)
+{'model': 'logreg', 'model_name': 'Logistic Regression', 'family': 'Linear / probabilistic', 'key_config': 'StandardScaler, L2, C=1.0', 'cv_macro_f1_mean': np.float64(0.9378), 'cv_macro_f1_std': np.float64(0.0108), 'cv_top1_mean': np.float64(0.8917), 'cv_top1_std': np.float64(0.02), 'cv_log_loss_mean': np.float64(0.108), 'train_macro_f1_sample': 0.6143, 'train_log_loss_sample': 0.1071, 'test_macro_f1': 0.9316, 'test_top1': 0.8832, 'test_log_loss': 0.1034, 'test_precision_pos': 0.8819, 'test_recall_pos': 0.8842, 'test_f1_pos': 0.8831, 'test_route_continuity': 0.7815, 'train_time_s_full': 10.7725, 'infer_ms_per_trip': 8.5177, 'test_cm_tn': np.int64(110258), 'test_cm_fp': np.int64(2262), 'test_cm_fn': np.int64(2212), 'test_cm_tp': np.int64(16898)}
+===== gnb
+  fold 0: macroF1 0.9258 top1 0.8763 logloss 0.5980 (1.9s)
+  fold 1: macroF1 0.9408 top1 0.8974 logloss 0.4657 (1.8s)
+  fold 2: macroF1 0.9349 top1 0.8812 logloss 0.4843 (1.9s)
+  fold 3: macroF1 0.9073 top1 0.8352 logloss 0.6154 (2.0s)
+  fold 4: macroF1 0.9084 top1 0.8481 logloss 0.8182 (1.9s)
+{'model': 'gnb', 'model_name': 'Gaussian Naive Bayes', 'family': 'Probabilistic (generative)', 'key_config': 'StandardScaler, var_smoothing=1e-9', 'cv_macro_f1_mean': np.float64(0.9234), 'cv_macro_f1_std': np.float64(0.0152), 'cv_top1_mean': np.float64(0.8677), 'cv_top1_std': np.float64(0.0254), 'cv_log_loss_mean': np.float64(0.5963), 'train_macro_f1_sample': 0.6114, 'train_log_loss_sample': 0.5883, 'test_macro_f1': 0.911, 'test_top1': 0.848, 'test_log_loss': 0.6483, 'test_precision_pos': 0.8468, 'test_recall_pos': 0.849, 'test_f1_pos': 0.8479, 'test_route_continuity': 0.7612, 'train_time_s_full': 2.1397, 'infer_ms_per_trip': 15.9219, 'test_cm_tn': np.int64(109584), 'test_cm_fp': np.int64(2936), 'test_cm_fn': np.int64(2886), 'test_cm_tp': np.int64(16224)}

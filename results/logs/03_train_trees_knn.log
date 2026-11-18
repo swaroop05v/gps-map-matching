@@ -1,0 +1,29 @@
+train rows 1200124, positives 0.153, test rows 131630
+===== lgbm
+  fold 0: macroF1 0.9362 top1 0.8935 logloss 0.1020 (8.1s)
+  fold 1: macroF1 0.9575 top1 0.9261 logloss 0.0604 (7.9s)
+  fold 2: macroF1 0.9524 top1 0.9114 logloss 0.0643 (8.5s)
+  fold 3: macroF1 0.9289 top1 0.8720 logloss 0.0922 (8.3s)
+  fold 4: macroF1 0.9426 top1 0.9041 logloss 0.0919 (8.9s)
+{'model': 'lgbm', 'model_name': 'LightGBM', 'family': 'Boosting', 'key_config': '400 trees, lr=0.05, 63 leaves, subsample=0.8, colsample=0.8', 'cv_macro_f1_mean': np.float64(0.9435), 'cv_macro_f1_std': np.float64(0.0116), 'cv_top1_mean': np.float64(0.9014), 'cv_top1_std': np.float64(0.0203), 'cv_log_loss_mean': np.float64(0.0822), 'train_macro_f1_20trips': 0.9802, 'train_top1_20trips': 0.9641, 'train_log_loss_20trips': 0.0327, 'test_macro_f1': 0.9497, 'test_top1': 0.9142, 'test_log_loss': 0.0718, 'test_precision_pos': 0.9129, 'test_recall_pos': 0.9153, 'test_f1_pos': 0.9141, 'test_route_continuity': 0.8249, 'train_time_s_full': 42.7663, 'infer_ms_per_trip': 88.3027, 'test_cm_tn': np.int64(110851), 'test_cm_fp': np.int64(1669), 'test_cm_fn': np.int64(1619), 'test_cm_tp': np.int64(17491)}
+===== hgb
+  fold 0: macroF1 0.9339 top1 0.8897 logloss 0.1168 (71.1s)
+  fold 1: macroF1 0.9533 top1 0.9188 logloss 0.0742 (47.7s)
+  fold 2: macroF1 0.9492 top1 0.9059 logloss 0.0776 (35.2s)
+  fold 3: macroF1 0.9268 top1 0.8683 logloss 0.1086 (51.3s)
+  fold 4: macroF1 0.9346 top1 0.8909 logloss 0.1417 (30.8s)
+{'model': 'hgb', 'model_name': 'HistGradientBoosting', 'family': 'Boosting', 'key_config': '300 iters, lr=0.1, 31 leaves', 'cv_macro_f1_mean': np.float64(0.9395), 'cv_macro_f1_std': np.float64(0.0112), 'cv_top1_mean': np.float64(0.8947), 'cv_top1_std': np.float64(0.019), 'cv_log_loss_mean': np.float64(0.1038), 'train_macro_f1_20trips': 0.9698, 'train_top1_20trips': 0.9465, 'train_log_loss_20trips': 0.0493, 'test_macro_f1': 0.9448, 'test_top1': 0.9057, 'test_log_loss': 0.0848, 'test_precision_pos': 0.9044, 'test_recall_pos': 0.9068, 'test_f1_pos': 0.9056, 'test_route_continuity': 0.7937, 'train_time_s_full': 14.2218, 'infer_ms_per_trip': 63.276, 'test_cm_tn': np.int64(110689), 'test_cm_fp': np.int64(1831), 'test_cm_fn': np.int64(1781), 'test_cm_tp': np.int64(17329)}
+===== rf
+  fold 0: macroF1 0.9368 top1 0.8945 logloss 0.0887 (26.2s)
+  fold 1: macroF1 0.9572 top1 0.9255 logloss 0.0582 (27.8s)
+  fold 2: macroF1 0.9520 top1 0.9106 logloss 0.0647 (25.7s)
+  fold 3: macroF1 0.9308 top1 0.8752 logloss 0.0913 (58.6s)
+  fold 4: macroF1 0.9446 top1 0.9073 logloss 0.0848 (48.4s)
+{'model': 'rf', 'model_name': 'Random Forest', 'family': 'Ensemble (bagging)', 'key_config': '150 trees, max_depth=16, min_leaf=5, max_samples=0.3', 'cv_macro_f1_mean': np.float64(0.9443), 'cv_macro_f1_std': np.float64(0.0108), 'cv_top1_mean': np.float64(0.9026), 'cv_top1_std': np.float64(0.0189), 'cv_log_loss_mean': np.float64(0.0775), 'train_macro_f1_20trips': 0.9741, 'train_top1_20trips': 0.9538, 'train_log_loss_20trips': 0.0412, 'test_macro_f1': 0.942, 'test_top1': 0.901, 'test_log_loss': 0.0734, 'test_precision_pos': 0.8997, 'test_recall_pos': 0.9021, 'test_f1_pos': 0.9009, 'test_route_continuity': 0.8251, 'train_time_s_full': 31.3988, 'infer_ms_per_trip': 22.33, 'test_cm_tn': np.int64(110599), 'test_cm_fp': np.int64(1921), 'test_cm_fn': np.int64(1871), 'test_cm_tp': np.int64(17239)}
+===== knn
+  fold 0: macroF1 0.9311 top1 0.8850 logloss 0.1723 (0.1s)
+  fold 1: macroF1 0.9477 top1 0.9092 logloss 0.0974 (0.1s)
+  fold 2: macroF1 0.9419 top1 0.8933 logloss 0.1136 (0.1s)
+  fold 3: macroF1 0.9167 top1 0.8512 logloss 0.1560 (0.1s)
+  fold 4: macroF1 0.9375 top1 0.8958 logloss 0.1552 (0.1s)
+{'model': 'knn', 'model_name': 'KNN (distance-weighted)', 'family': 'Instance-based', 'key_config': 'k=25, Euclidean on scaled features, fit on 200k-row subsample', 'cv_macro_f1_mean': np.float64(0.935), 'cv_macro_f1_std': np.float64(0.0119), 'cv_top1_mean': np.float64(0.8869), 'cv_top1_std': np.float64(0.0218), 'cv_log_loss_mean': np.float64(0.1389), 'train_macro_f1_20trips': 0.9716, 'train_top1_20trips': 0.9495, 'train_log_loss_20trips': 0.0611, 'test_macro_f1': 0.9309, 'test_top1': 0.8819, 'test_log_loss': 0.1293, 'test_precision_pos': 0.8807, 'test_recall_pos': 0.883, 'test_f1_pos': 0.8818, 'test_route_continuity': 0.7679, 'train_time_s_full': 0.0984, 'infer_ms_per_trip': 1350.213, 'test_cm_tn': np.int64(110234), 'test_cm_fp': np.int64(2286), 'test_cm_fn': np.int64(2236), 'test_cm_tp': np.int64(16874)}

@@ -1,0 +1,57 @@
+{
+  "algorithm": "LightGBM (binary candidate classifier)",
+  "params": {
+    "learning_rate": 0.028145092716060652,
+    "n_estimators": 467,
+    "num_leaves": 119,
+    "max_depth": 6,
+    "min_child_samples": 188,
+    "subsample": 0.569746930326021,
+    "colsample_bytree": 0.5752867891211308,
+    "reg_lambda": 0.006789053271698486
+  },
+  "features": [
+    "dist",
+    "dist_rank",
+    "dist_minus_min",
+    "dist_ratio",
+    "n_cands",
+    "t_proj",
+    "overshoot_m",
+    "arc_len",
+    "log_arc_len",
+    "heading_valid",
+    "angle_diff",
+    "cos_angle",
+    "angle_diff_long",
+    "speed",
+    "dt_prev",
+    "dt_next",
+    "turn",
+    "ctx_mean_dist",
+    "ctx_max_dist",
+    "ctx_nearest_frac",
+    "ctx_mean_dist_minus_min",
+    "out_deg_to",
+    "in_deg_from",
+    "has_reverse"
+  ],
+  "trained_on": "80 train trips, fixes with alignment distance <= 50 m",
+  "candidate_config": {
+    "radius_m": 50.0,
+    "max_k": 10,
+    "fallback_radius_m": 150.0,
+    "fallback_k": 3,
+    "densify_step_m": 10.0
+  },
+  "feature_config": {
+    "heading_half_window": 2,
+    "heading_long_half_window": 5,
+    "min_heading_disp_m": 3.0,
+    "context_half_window": 3
+  },
+  "preprocess_config": {
+    "gap_seconds": 60.0,
+    "gap_jump_m": 800.0
+  }
+}

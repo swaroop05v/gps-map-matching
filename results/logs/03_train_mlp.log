@@ -1,0 +1,8 @@
+train rows 1200124, positives 0.153, test rows 131630
+===== mlp
+  fold 0: macroF1 0.9373 top1 0.8953 logloss 0.1042 (106.2s)
+  fold 1: macroF1 0.9552 top1 0.9221 logloss 0.0599 (72.2s)
+  fold 2: macroF1 0.9503 top1 0.9077 logloss 0.0691 (66.9s)
+  fold 3: macroF1 0.9280 top1 0.8705 logloss 0.0974 (58.3s)
+  fold 4: macroF1 0.9405 top1 0.9007 logloss 0.0962 (26.7s)
+{'model': 'mlp', 'model_name': 'MLP (PyTorch)', 'family': 'Neural network', 'key_config': '128-64 ReLU, dropout 0.1, Adam lr=1e-3, BCE, early stop (patience 4)', 'cv_macro_f1_mean': np.float64(0.9423), 'cv_macro_f1_std': np.float64(0.0107), 'cv_top1_mean': np.float64(0.8993), 'cv_top1_std': np.float64(0.019), 'cv_log_loss_mean': np.float64(0.0854), 'train_macro_f1_20trips': 0.9702, 'train_top1_20trips': 0.9472, 'train_log_loss_20trips': 0.047, 'test_macro_f1': 0.941, 'test_top1': 0.8992, 'test_log_loss': 0.0787, 'test_precision_pos': 0.898, 'test_recall_pos': 0.9003, 'test_f1_pos': 0.8991, 'test_route_continuity': 0.8155, 'train_time_s_full': 98.3092, 'infer_ms_per_trip': 9.5624, 'test_cm_tn': np.int64(110565), 'test_cm_fp': np.int64(1955), 'test_cm_fn': np.int64(1905), 'test_cm_tp': np.int64(17205)}
