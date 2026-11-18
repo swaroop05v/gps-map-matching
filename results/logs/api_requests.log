@@ -1,0 +1,39 @@
+2026-11-18 11:00:55,695 | INFO | model loaded: LGBMClassifier | decoder alpha=0.5 beta=5.0 beam=8
+2026-11-18 11:00:56,003 | INFO | HEAD / from 127.0.0.1 -> 404 (0 ms)
+2026-11-18 11:00:56,027 | INFO | GET / from 127.0.0.1 -> 404 (0 ms)
+2026-11-18 11:00:56,042 | INFO | GET /favicon.ico from 127.0.0.1 -> 404 (0 ms)
+2026-11-18 11:01:00,000 | INFO | GET /health from 127.0.0.1 -> 200 (7 ms)
+2026-11-18 11:01:01,234 | INFO | PREDICT trip=00000000 partition=student_test points=2503 route_arcs=199 top1_hmm=0.9776 top1_clf=0.9545 continuity=0.9577 time=0.95s
+2026-11-18 11:01:01,242 | INFO | POST /predict from 127.0.0.1 -> 200 (973 ms)
+2026-11-18 11:01:01,975 | INFO | PREDICT trip=00000007 partition=student_test points=1354 route_arcs=121 top1_hmm=1.0000 top1_clf=0.9653 continuity=1.0000 time=0.42s
+2026-11-18 11:01:01,975 | INFO | POST /predict from 127.0.0.1 -> 200 (429 ms)
+2026-11-18 11:01:02,775 | INFO | PREDICT trip=00000009 partition=student_test points=1049 route_arcs=450 top1_hmm=0.9085 top1_clf=0.8875 continuity=0.8525 time=0.54s
+2026-11-18 11:01:02,797 | INFO | POST /predict from 127.0.0.1 -> 200 (553 ms)
+2026-11-18 11:01:04,204 | INFO | PREDICT trip=00000040 partition=student_test points=2995 route_arcs=323 top1_hmm=0.9780 top1_clf=0.9609 continuity=0.9612 time=1.14s
+2026-11-18 11:01:04,224 | INFO | POST /predict from 127.0.0.1 -> 200 (1164 ms)
+2026-11-18 11:01:04,641 | INFO | PREDICT trip=00000052 partition=student_test points=262 route_arcs=93 top1_hmm=0.9962 top1_clf=0.9771 continuity=0.8625 time=0.15s
+2026-11-18 11:01:04,641 | INFO | POST /predict from 127.0.0.1 -> 200 (159 ms)
+2026-11-18 11:01:06,921 | INFO | PREDICT trip=00000056 partition=student_test points=3958 route_arcs=1422 top1_hmm=0.9741 top1_clf=0.9311 continuity=0.8906 time=2.01s
+2026-11-18 11:01:07,007 | INFO | POST /predict from 127.0.0.1 -> 200 (2099 ms)
+2026-11-18 11:01:07,715 | INFO | PREDICT trip=00000065 partition=student_test points=768 route_arcs=151 top1_hmm=0.8971 top1_clf=0.8750 continuity=0.9197 time=0.44s
+2026-11-18 11:01:07,721 | INFO | POST /predict from 127.0.0.1 -> 200 (448 ms)
+2026-11-18 11:01:09,180 | INFO | PREDICT trip=00000076 partition=student_test points=1486 route_arcs=406 top1_hmm=0.9751 top1_clf=0.9354 continuity=0.8805 time=1.21s
+2026-11-18 11:01:09,199 | INFO | POST /predict from 127.0.0.1 -> 200 (1225 ms)
+2026-11-18 11:01:10,874 | INFO | PREDICT trip=00000077 partition=student_test points=3911 route_arcs=349 top1_hmm=0.8627 top1_clf=0.7980 continuity=0.9358 time=1.43s
+2026-11-18 11:01:10,907 | INFO | POST /predict from 127.0.0.1 -> 200 (1452 ms)
+2026-11-18 11:01:11,607 | INFO | PREDICT trip=00000091 partition=student_test points=874 route_arcs=233 top1_hmm=0.9531 top1_clf=0.9176 continuity=0.8689 time=0.44s
+2026-11-18 11:01:11,623 | INFO | POST /predict from 127.0.0.1 -> 200 (447 ms)
+2026-11-18 11:01:28,172 | INFO | GET /health from 127.0.0.1 -> 200 (4 ms)
+2026-11-18 11:01:30,208 | INFO | GET /trips from 127.0.0.1 -> 200 (4 ms)
+2026-11-18 11:01:46,723 | INFO | GET /health from 127.0.0.1 -> 200 (3 ms)
+2026-11-18 11:01:48,751 | INFO | GET /trips from 127.0.0.1 -> 200 (1 ms)
+2026-11-18 11:01:57,050 | INFO | GET /health from 127.0.0.1 -> 200 (3 ms)
+2026-11-18 11:01:59,103 | INFO | GET /trips from 127.0.0.1 -> 200 (3 ms)
+2026-11-18 11:02:01,186 | INFO | GET /health from 127.0.0.1 -> 200 (3 ms)
+2026-11-18 11:02:03,250 | INFO | GET /trips from 127.0.0.1 -> 200 (2 ms)
+2026-11-18 11:02:03,702 | INFO | GET /health from 127.0.0.1 -> 200 (3 ms)
+2026-11-18 11:02:05,749 | INFO | GET /trips from 127.0.0.1 -> 200 (2 ms)
+2026-11-18 11:02:09,203 | INFO | PREDICT trip=00000077 partition=student_test points=3911 route_arcs=349 top1_hmm=0.8627 top1_clf=0.7980 continuity=0.9358 time=1.39s
+2026-11-18 11:02:09,214 | INFO | POST /predict from 127.0.0.1 -> 200 (1411 ms)
+2026-11-18 11:02:24,379 | INFO | GET /health from 127.0.0.1 -> 200 (2 ms)
+2026-11-18 11:02:26,432 | INFO | GET /trips from 127.0.0.1 -> 200 (3 ms)
